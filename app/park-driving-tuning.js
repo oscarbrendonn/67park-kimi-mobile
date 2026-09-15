@@ -2,7 +2,7 @@
 // server. Preserve the 120 Hz collision sweep, footprint and mounting rules.
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const approach=(a,b,d)=>a<b?Math.min(b,a+d):Math.max(b,a-d);
-export const PARK_DRIVING=Object.freeze({maxSpeed:10.5,reverseSpeed:3.5,acceleration:6.2,braking:13,steerAngle:.66,steerRate:3.2,returnRate:4.2});
+export const PARK_DRIVING=Object.freeze({maxSpeed:13,reverseSpeed:4,acceleration:8,braking:16,steerAngle:.66,steerRate:3.8,returnRate:4.8});
 export function updateParkDriving(car,dt,{throttle=0,steer=0,brake=false}={}) {
   if(![dt,throttle,steer].every(Number.isFinite)){car.stop();return;}
   dt=clamp(dt,0,.05);throttle=clamp(throttle,-1,1);steer=clamp(steer,-1,1);

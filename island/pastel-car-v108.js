@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {updateParkDriving} from '../app/park-driving-tuning.js?v=drive-35';
+import {updateParkDriving} from '../app/park-driving-tuning.js?v=car-45';
 import {CAR110,BUS110,createCandyVehicle110} from './candy-vehicle-model-v110.js?v=110.2';
 import {createCityHeightSampler58} from './city-height-sampler58.js';
 import {restoreBasePose} from './six-seven-movement-v28.js';
