@@ -1,4 +1,4 @@
-import {bindHeldAction,bindMinigameLook} from '../app/minigame-input.js?v=controls-37';
+import {bindHeldAction,bindMinigameLook} from '../app/minigame-input.js?v=controls-38';
 import {isTextEntry} from '../app/text-input-guard.js?v=mobile-29';
 
 export function createPlayerInput(){

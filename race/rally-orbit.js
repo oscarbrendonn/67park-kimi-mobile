@@ -1,4 +1,4 @@
-import {bindMinigameLook} from '../app/minigame-input.js?v=controls-37';
+import {bindMinigameLook} from '../app/minigame-input.js?v=controls-38';
 export function bindRallyOrbit(canvas,enabled){
   const input=bindMinigameLook(canvas,enabled);
   let yaw=0,pitch=0;
