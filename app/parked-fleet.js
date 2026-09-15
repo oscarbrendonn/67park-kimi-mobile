@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {createCandyVehicle110} from '../island/candy-vehicle-model-v110.js?v=110.2';
-import {useReferenceCarBody} from './reference-car-body.js?v=fleet-38';
+import {useReferenceCarBody} from './reference-car-body.js?v=release-40';
 import {mergeGeometries} from '../island/utils/BufferGeometryUtils.js';
 
 // Exact eight occupied bays from the SPORTS97 asset, in its local coordinates.

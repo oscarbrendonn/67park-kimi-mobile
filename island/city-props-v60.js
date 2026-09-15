@@ -1,7 +1,7 @@
-import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js';
+import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js?v=release-40';
 const islandFetch=(u,...a)=>assetFetch(typeof u==='string'&&u.startsWith('./')?'/67park-kimi-mobile/island/'+u.slice(2):u,...a);
 import * as THREE from 'three';
-import {GLTFLoader} from './GLTFLoader.js';
+import {GLTFLoader} from './GLTFLoader.js?v=release-40';
 import {mergeGeometries} from '/67park-kimi-mobile/island/utils/BufferGeometryUtils.js';
 import {createCityHeightSampler58} from './city-height-sampler58.js';
 

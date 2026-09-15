@@ -1,7 +1,7 @@
 import * as T from 'three';
-import {GLTFLoader} from './GLTFLoader.js';
+import {GLTFLoader} from './GLTFLoader.js?v=release-40';
 import {mergeGeometries} from './utils/BufferGeometryUtils.js';
-import {finishCityMaterial60} from './city-props-v60.js';
+import {finishCityMaterial60} from './city-props-v60.js?v=release-40';
 import {createRideAsset84} from './lunapark-rides-v84.js?v=87.1';
 import {seasideScale89,prepareSeasideAsset89} from './seaside-scale-v89.js?v=91';
 export const layout77=[

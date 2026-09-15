@@ -93,6 +93,8 @@ export function retryEntry(){location.reload();}
 export async function assetFetch(url,options={},config={}){
  const controller=new AbortController(),idleMs=config.idleMs??45000,fetcher=config.fetcher??globalThis.fetch;
  const generation=shared.generation,identity=assetKey(url);let attemptBytes=0;
+ // Island preload queue reads this so it never re-requests a URL whose real request already started.
+ if(identity&&(shared.requested??=new Set()).size<512)shared.requested.add(identity);
  let timer,reader,closed=false;
  const reset=()=>{clearTimeout(timer);timer=setTimeout(()=>controller.abort(new Error('Download stalled')),idleMs);};
  const external=()=>controller.abort(options.signal?.reason);

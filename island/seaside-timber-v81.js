@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {RoundedBoxGeometry} from './utils/RoundedBoxGeometry.js';
 import {mergeGeometries} from './utils/BufferGeometryUtils.js';
-import {finishCityMaterial60} from './city-props-v60.js';
+import {finishCityMaterial60} from './city-props-v60.js?v=release-40';
 import {createCityHeightSampler58} from './city-height-sampler58.js';
 
 // The latest user photo: one soft peach promenade and exactly three plain

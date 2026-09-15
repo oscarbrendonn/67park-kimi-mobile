@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {IslandCharacterController as ParkCore} from './park-controller-core-v28.js';
 import {GroundSlam,ParkImpact} from './park-power-v28.js';
 import {applyEmote} from './park-emotes-v28.js';
-import {disposeParkObject} from './park-assets-v28.js';
+import {disposeParkObject} from './park-assets-v28.js?v=release-40';
 const clamp=THREE.MathUtils.clamp,lerp=THREE.MathUtils.lerp;
 const angle=(a,b)=>Math.atan2(Math.sin(a-b),Math.cos(a-b));
 export class IslandCharacterController extends ParkCore{

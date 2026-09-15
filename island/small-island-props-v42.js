@@ -1,7 +1,7 @@
-import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js';
+import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js?v=release-40';
 const islandFetch=(u,...a)=>assetFetch(typeof u==='string'&&u.startsWith('./')?'/67park-kimi-mobile/island/'+u.slice(2):u,...a);
 import * as THREE from 'three';
-import {GLTFLoader} from './GLTFLoader.js';
+import {GLTFLoader} from './GLTFLoader.js?v=release-40';
 
 // Additive asset layer: no edits to the island GLB, paint, coast, road or player.
 export async function loadSmallIslandProps({scene,renderer,sample,variant}){

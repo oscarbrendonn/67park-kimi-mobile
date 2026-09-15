@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {installRideControls84} from './lunapark-rides-v84.js?v=87.1';
-import {disposeParkObject} from './park-assets-v28.js';
+import {disposeParkObject} from './park-assets-v28.js?v=release-40';
 
 // Imported ONLY by ?qa=... links. No NPCs, extra avatars, controls, or asset
 // downloads are added to normal play. These are labelled local test riders,

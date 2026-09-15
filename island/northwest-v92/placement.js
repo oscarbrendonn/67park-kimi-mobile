@@ -1,6 +1,6 @@
 import * as T from 'three';
-import {GLTFLoader} from '../GLTFLoader.js';
-import {finishHouseMaterial62} from '../small-island-props-v62.js';
+import {GLTFLoader} from '../GLTFLoader.js?v=release-40';
+import {finishHouseMaterial62} from '../small-island-props-v62.js?v=release-40';
 import {createCityHeightSampler58} from '../city-height-sampler58.js';
 
 // Preview-only additive layer. Never removes or edits terrain or old props.

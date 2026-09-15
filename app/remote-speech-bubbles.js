@@ -32,22 +32,22 @@ export function updateRemoteSpeech({id,visual,camera,messages,blocked=false,now=
   let entry=entries.get(id);
   try{
     const message=latest(messages,id),at=Number(message?.at),text=typeof message?.text==='string'?message.text.trim().slice(0,140):'';
-    if(!text||!Number.isFinite(at)||now-at>=LIFETIME||at-now>30000){if(entry)entry.node.hidden=true;return;}
+    if(!text||!Number.isFinite(at)||now-at>=LIFETIME||at-now>30000){if(entry&&!entry.node.hidden)entry.node.hidden=true;return;}
     const key=String(message.nonce||at)+'|'+text;
     if(!entry){
       if(entries.size>=LIMIT)removeRemoteSpeech(entries.keys().next().value);
       entry={node:element(id),key:'',visual:null,head:null,nextSearch:0,expires:0,failed:false,transform:''};entries.set(id,entry);
     }
     if(entry.key!==key){entry.key=key;entry.node.textContent=text;entry.expires=now+Math.min(LIFETIME,LIFETIME-Math.max(0,now-at));entry.failed=false;}
-    if(entry.failed||now>=entry.expires||document.hidden||blocked||!camera||!visual){entry.node.hidden=true;return;}
+    if(entry.failed||now>=entry.expires||document.hidden||blocked||!camera||!visual){if(!entry.node.hidden)entry.node.hidden=true;return;}
     if(entry.visual!==visual||entry.head&&!attached(entry.head,visual)){entry.visual=visual;entry.head=null;entry.nextSearch=0;}
     if(!entry.head&&now>=entry.nextSearch){entry.head=findHead(visual);entry.nextSearch=now+250;}
     const p=visual.position,m=entry.head?.matrixWorld?.elements;
     if(!p){entry.node.hidden=true;return;}
     anchor.set(p.x,p.y+2,p.z);
-    if(m&&[m[12],m[13],m[14]].every(Number.isFinite))anchor.set(m[12],m[13]+.55,m[14]);
+    if(m&&Number.isFinite(m[12])&&Number.isFinite(m[13])&&Number.isFinite(m[14]))anchor.set(m[12],m[13]+.55,m[14]);
     anchor.project(camera);
-    if(![anchor.x,anchor.y,anchor.z].every(Number.isFinite)||Math.abs(anchor.x)>1||Math.abs(anchor.y)>1||anchor.z<-1||anchor.z>1){entry.node.hidden=true;return;}
+    if(!(Number.isFinite(anchor.x)&&Number.isFinite(anchor.y)&&Number.isFinite(anchor.z))||Math.abs(anchor.x)>1||Math.abs(anchor.y)>1||anchor.z<-1||anchor.z>1){if(!entry.node.hidden)entry.node.hidden=true;return;}
     const rect=document.querySelector('canvas')?.getBoundingClientRect(),width=rect?.width||innerWidth,height=rect?.height||innerHeight;
     const label=document.querySelector('[data-remote-name="'+String(id).replace(/[^a-zA-Z0-9_-]/g,'')+'"]')?.getBoundingClientRect();
     let top=(rect?.top||0)+(1-anchor.y)*height/2-12;

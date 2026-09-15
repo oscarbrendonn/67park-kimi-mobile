@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {GLTFLoader} from './GLTFLoader.js';
+import {GLTFLoader} from './GLTFLoader.js?v=release-40';
 import {createPlinthSampler57} from './park-plinth-sampler57.js';
 
 const FURNITURE={'picnic-table':'picnic-table-v57',bench:'back-bench-v57','trash-bin':'slatted-bin-v57','globe-lamp':'globe-lamp-v57','balance-beam-tan':'balance-beam-tan-v57','balance-beam-coral':'balance-beam-coral-v57','stepping-cylinder':'stepping-cylinder-v57','bridge-upper':'arched-bridge-upper-v57','bridge-lower':'arched-bridge-lower-v63'};

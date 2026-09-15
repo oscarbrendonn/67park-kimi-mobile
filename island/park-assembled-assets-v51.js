@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {GLTFLoader} from './GLTFLoader.js';
+import {GLTFLoader} from './GLTFLoader.js?v=release-40';
 import {CHARACTERS,POWER_STYLE,VIBE_COLOR} from './park-source-data-v51.js';
 import {sanitizeEquipment} from './park-equipment-v51.js';
 import {buildFriendsieModel,dressGorilClone,parseGlbPart} from './park-source-assemble-v51.js';

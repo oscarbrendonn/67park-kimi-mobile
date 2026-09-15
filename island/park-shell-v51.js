@@ -1,5 +1,5 @@
 import {CHARACTERS,RARITY_STYLE,defaultEquipment,sanitizeEquipment,slotOptions,partLabel,cycleEquipment,randomEquipment} from './park-equipment-v51.js';
-import {loadEquipmentCharacter,disposeEquipmentCharacter} from './park-assembled-assets-v51.js';
+import {loadEquipmentCharacter,disposeEquipmentCharacter} from './park-assembled-assets-v51.js?v=release-40';
 import {createCharacterStage51} from './park-stage-v51.js';
 import {EMOTES} from './park-emotes-v28.js';
 import {matchGorillaNeck} from './park-neck-v30.js';

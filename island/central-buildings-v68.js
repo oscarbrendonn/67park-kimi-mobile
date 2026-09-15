@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import {GLTFLoader} from './GLTFLoader.js';
-import {finishCityMaterial60} from './city-props-v60.js';
+import {GLTFLoader} from './GLTFLoader.js?v=release-40';
+import {finishCityMaterial60} from './city-props-v60.js?v=release-40';
 
 // Existing grass islands, world-space metres. No terrain is replaced.
 export const centralLayout68 = [

@@ -1,6 +1,6 @@
 import * as T from 'three';
-import {mergeGeometries,mergeVertices} from '../island/utils/BufferGeometryUtils.js';
-import {RoundedBoxGeometry} from '../island/utils/RoundedBoxGeometry.js';
+import {mergeGeometries,mergeVertices} from '../vendor/addons/utils/BufferGeometryUtils.js';
+import {RoundedBoxGeometry} from '../vendor/addons/geometries/RoundedBoxGeometry.js';
 import {addParkPlates} from './vehicle-branding.js?v=fleet-38';
 
 // The reference is a moulded, body-colour retro compact. Geometry is native 3D:

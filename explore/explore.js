@@ -1,6 +1,6 @@
 // app/explore/explore.js
 import * as THREE from "three";
-import { beginEntry, subscribeEntry, entrySnapshot, entryReady, entryFailed, watchEntry } from "/67park-kimi-mobile/app/entry-loading.js";
+import { beginEntry, subscribeEntry, entrySnapshot, entryReady, entryFailed, watchEntry } from "/67park-kimi-mobile/app/entry-loading.js?v=release-40";
 
 // explore-local-helper:/67park-kimi-mobile/app/island-camera-depth.js
 var savedClipping = /* @__PURE__ */ new WeakMap();
@@ -400,7 +400,7 @@ try {
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   resize();
-  const { createIslandRuntime } = await import("/67park-kimi-mobile/island/runtime.bundle.js?v=fleet-38");
+  const { createIslandRuntime } = await import("/67park-kimi-mobile/island/runtime.bundle.js?v=release-40");
   world = await createIslandRuntime({ renderer, sahne: scene, kam: camera });
   if (failed || entrySnapshot().status === "error") throw Error(entrySnapshot().error || "Harita y\xFCklenemedi");
   box = new THREE.Box3().setFromObject(world.terrain);

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {GLTFLoader} from './GLTFLoader.js';
+import {GLTFLoader} from './GLTFLoader.js?v=release-40';
 import {CHARACTERS} from './park-roster-v28.js';
 import {canonicalBaseBounds} from './park-bounds-v28.js';
 import {restQuats,retargetClip} from './park-retarget-v28.js';

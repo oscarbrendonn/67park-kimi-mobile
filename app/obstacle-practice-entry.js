@@ -6,9 +6,18 @@ export function installObstaclePractice({store,start,wardrobe,subscribeWardrobe}
  const info=document.createElement('span');info.textContent='Race against 4 bots · Move + Jump';
  const button=document.createElement('button');button.textContent='Start race';button.type='button';
  const back=document.createElement('a');back.href='/67park-kimi-mobile/?online=1&v=ui-39';back.textContent='Back to island';
- button.onclick=()=>{if(wardrobe.open||store.getState().phase==='playing')return;start();};
+ let starting=false;
+ button.onclick=()=>{
+  if(starting||wardrobe.open||!['roam','ready'].includes(store.getState().phase))return;
+  starting=true;button.disabled=true;button.textContent='Starting…';
+  try{start();}catch(error){starting=false;button.disabled=false;button.textContent='Start race';throw error;}
+ };
  host.append(title,info,button,back);document.body.append(host);
- const update=()=>{host.hidden=wardrobe.open||!['roam','ready'].includes(store.getState().phase);};
+ const update=()=>{
+  const phase=store.getState().phase;
+  if(!['roam','ready'].includes(phase)){starting=false;button.disabled=false;button.textContent='Start race';}
+  host.hidden=wardrobe.open||!['roam','ready'].includes(phase);
+ };
  const unsub=store.subscribe(update),unsubWardrobe=subscribeWardrobe(update);update();
- window.addEventListener('pagehide',()=>{unsub();unsubWardrobe?.();host.remove();},{once:true});
+ window.addEventListener('pagehide',event=>{if(event.persisted)return;unsub();unsubWardrobe?.();host.remove();});
 }

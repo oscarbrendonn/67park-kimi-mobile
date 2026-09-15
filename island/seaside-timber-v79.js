@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {RoundedBoxGeometry} from './utils/RoundedBoxGeometry.js';
 import {mergeGeometries} from './utils/BufferGeometryUtils.js';
-import {finishCityMaterial60} from './city-props-v60.js';
+import {finishCityMaterial60} from './city-props-v60.js?v=release-40';
 
 // Reference marina: transverse promenade boards, three continuous piers and
 // short mooring fingers. World-space placement preserves the existing road.

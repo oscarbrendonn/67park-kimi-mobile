@@ -1,4 +1,4 @@
-import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js';
+import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js?v=release-40';
 import {MeshoptDecoder as LosslessDecoder} from '../vendor/addons/libs/meshopt_decoder.module.js';
 import {
 	AnimationClip,

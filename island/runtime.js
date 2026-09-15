@@ -7,7 +7,7 @@ import {installIslandSwimBoundary} from '/67park-kimi-mobile/app/island-swim-run
 import {installParcelGapQA} from '/67park-kimi-mobile/app/parcel-gap-qa.js';
 import {applyParcelPaving} from '/67park-kimi-mobile/app/island-parcel-paving.js';
 import {installParcelCornerQA} from '/67park-kimi-mobile/app/parcel-corner-qa.js';
-import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js';
+import {assetFetch} from '/67park-kimi-mobile/app/entry-loading.js?v=release-40';
 const islandFetch=(u,...a)=>assetFetch(typeof u==='string'&&u.startsWith('./')?'/67park-kimi-mobile/island/'+u.slice(2):u,...a);
 import {loadIslandPrerequisites} from '../app/island-startup-queue.js';
 import {createIslandAssetCache} from '../app/island-asset-cache.js';
@@ -16,9 +16,9 @@ import {applyCurbJoins} from '/67park-kimi-mobile/app/island-curb-joins.js';
 import {applyParkEdges} from '/67park-kimi-mobile/app/island-park-edges.js';
 import * as THREE from 'three';
 import {createStableSunShadow52} from './stable-sun-shadow-v52.js';
-import {loadSmallIslandProps} from './small-island-props-v62.js?v=roof1';
-import {loadParkProps63} from './park-props-v63.js?v=anchor2';
-import {loadCityProps60} from './city-props-v60.js?v=photo67';
+import {loadSmallIslandProps} from './small-island-props-v62.js?v=release-40';
+import {loadParkProps63} from './park-props-v63.js?v=release-40';
+import {loadCityProps60} from './city-props-v60.js?v=release-40';
 import {applyPhotoFixes67} from './fixes-v67.js?v=8';
 import {applyParkTerrain57,wrapParkTerrainSampler57} from './park-terrain-v57.js?v=1';
 import {applyParkPlinthGround57} from './park-plinth-ground57.js?v=1';
@@ -39,10 +39,10 @@ import {isMiniBowl64,isLargeSkatepark64,applyMiniBowlRender64,applyLargeSkatepar
 import {installCurbShadows49} from './curb-shadow-v49.js?v=curb6';
 import {createPastelWater} from './pastel-water-v23.js?v=softwave24-2';
 import {applyRoadJoin} from './road-join-v34.js';
-import {installCarControls108,createPastelTraffic108} from './pastel-car-v108.js?v=fleet-38';
+import {installCarControls108,createPastelTraffic108} from './pastel-car-v108.js?v=release-40';
 import {createTerrainSampler} from './terrain-sampler-v27.js?v=1';
 import {sealOpenTerrain,unifyCurbFinish,sealBridgeApron} from './surface-seal-v32.js?v=2';
-import { GLTFLoader } from './GLTFLoader.js';
+import { GLTFLoader } from './GLTFLoader.js?v=release-40';
 import { RoomEnvironment } from './RoomEnvironment.js';
 import {prepareCoast,addDryInterior,configureInteriorWater,dryInteriorAt} from './coast-grade-v21.js?v=3';
 import {installSurfaceFinish} from '../app/surface-finish.js';
@@ -50,7 +50,7 @@ import {cacheStaticTransforms} from '../app/island-static-transforms.js';
 import {installIslandShadowCache,createShadowAnchor} from '../app/island-shadow-cache.js';
 import {waterWithSolidFloor,createPondWater} from '../app/island-water-floor.js';
 import {treeIndex} from '../app/island-motion.js';
-import {entryStage} from '/67park-kimi-mobile/app/entry-loading.js';
+import {entryStage} from '/67park-kimi-mobile/app/entry-loading.js?v=release-40';
 import {preserveAuthoredIslandEnvironment} from '../app/island-environment.js';
 export async function createIslandRuntime({renderer,sahne,kam}) {
 const islandStartupAssets=createIslandAssetCache();
@@ -1494,27 +1494,27 @@ await entryStage(4,'Preparing the neighbourhood');
   cityProps60=await loadCityProps60({scene:sahne,renderer,sample:zeminVurusu,variant:'kimi'});
   // Optional additive layer: failure must not prevent the island from opening.
   try {
-    const {loadCentralBuildings68}=await import('./central-buildings-v68.js?v=76');
+    const {loadCentralBuildings68}=await import('./central-buildings-v68.js?v=release-40');
 await entryStage(5,'Preparing the central square');
     centralBuildings68=await loadCentralBuildings68({scene:sahne,renderer,sample:zeminVurusu,variant:'kimi'});
   } catch(e) { renderer.domElement.dataset.centralBuildings68='error: '+e.message; console.error('Central buildings',e); }
   try {
-    const {createSeasideTimber81}=await import('./seaside-timber-v81.js?v=82');
+    const {createSeasideTimber81}=await import('./seaside-timber-v81.js?v=release-40');
 await entryStage(6,'Preparing the wooden piers');
     seasideTimber79=createSeasideTimber81({scene:sahne,terrainRoot:kok,renderer,variant:'kimi'});
   } catch(e){renderer.domElement.dataset.seasideTimber79='error: '+e.message;console.error('Seaside timber',e);}
   try {
-    const {loadLunapark77}=await import('./lunapark-placement-v77.js?v=91');
+    const {loadLunapark77}=await import('./lunapark-placement-v77.js?v=release-40');
 await entryStage(7,'Preparing rides and boats');
     lunapark77=await loadLunapark77({scene:sahne,renderer,sample:zeminVurusu,sea:kimiSu.position.y,variant:'kimi',terrainRoot:kok,timberSample:seasideTimber79?.sample});
   } catch(e){renderer.domElement.dataset.lunapark77='error: '+e.message;console.error('Amusement park',e);}
   try {
-    const {loadLowerPlaza83}=await import('./lower-plaza-v83.js?v=83.1');
+    const {loadLowerPlaza83}=await import('./lower-plaza-v83.js?v=release-40');
 await entryStage(8,'Preparing the garden plaza');
     lowerPlaza83=await loadLowerPlaza83({scene:sahne,renderer,sample:zeminVurusu,variant:'kimi'});
   } catch(e){renderer.domElement.dataset.lowerPlaza83='error: '+e.message;console.error('Lower plaza',e);}
   try {
-    const {loadNorthwestSports97}=await import('./northwest-sports-v97.js?v=fleet-38');
+    const {loadNorthwestSports97}=await import('./northwest-sports-v97.js?v=release-40');
 await entryStage(9,'Preparing sports grounds');
     northwestSports97=await loadNorthwestSports97({scene:sahne,renderer,sample:zeminVurusu,variant:'kimi',terrainRoot:kok});
     renderer.domElement.__northwestSports97=northwestSports97;
@@ -1544,7 +1544,7 @@ await entryStage(12,'Preparing the pool');
     renderer.domElement.__northPool104=northPool104;
   } catch(e){renderer.domElement.dataset.northPool104='error: '+e.message;console.error('North pool',e);}
 await entryStage(13,'Finishing the northern neighbourhood');
-  const {loadNorthwest93}=await import('./northwest-v93/placement.js');
+  const {loadNorthwest93}=await import('./northwest-v93/placement.js?v=release-40');
   northwest93=await loadNorthwest93({scene:sahne,renderer,sample:zeminVurusu,variant:'kimi'});
   const {createNorthHomes}=await import('../app/island-north-homes.js');
   const {createNorthApartments}=await import('../app/island-north-apartments.js');
