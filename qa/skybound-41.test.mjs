@@ -21,4 +21,11 @@ const avatar=fs.readFileSync(new URL('../app/skybound-avatar.js',import.meta.url
 assert.ok(avatar.includes('chunk-U4P5F7P3.js'));
 assert.ok(avatar.includes('const selected={...equipment}'));
 assert.ok(avatar.includes('await avatar.animator.ready'));
+assert.ok(code.includes('REMOVED_DECORATIVE_ISLAND'));
+assert.ok(!code.includes('e.userData.courseFloor=[o,a]'));
+assert.ok(code.includes('new ui("#fff7e8",0,9)'));
+assert.ok(code.includes('gl_PointSize=min(48.0,'));
+assert.ok(code.includes('if(mv.z>-0.35)'));
+assert.ok(code.includes('Pt&&Math.abs(sn.position.x-Bt.position.x)<6'));
+assert.ok(code.includes('sn.position.y<-9&&yi()'));
 console.log('PASS Skybound card, solo route, disabled room state, subpath assets and pause clock');
