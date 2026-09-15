@@ -27,5 +27,5 @@ const available=obstaclePracticeCard(jsx,false),blocked=obstaclePracticeCard(jsx
 for(const node of available.props.children)assert.match(node.props.href,/map=obstacle&practice=1&bots=1/);
 for(const node of blocked.props.children)assert.equal(node.props.href,undefined);
 const shared=fs.readFileSync(new URL('../app/chunk-A5QZM2VZ.js',import.meta.url),'utf8');
-assert.ok(shared.includes('friends-panel-style.js'));assert.ok(shared.includes('obstaclePracticeCard(e,!!a)'));
+assert.ok(shared.includes('friends-panel-style.js'));assert.ok(shared.includes('skyboundCard(e,!!a)'));
 console.log('PASS: 1000 Start presses launch once; replay, wardrobe guard, back/forward cache, local-only course links and shared panel loading.');

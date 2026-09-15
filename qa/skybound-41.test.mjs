@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {skyboundCard,SKYBOUND_URL} from '../app/skybound-card.js';
+const jsx={jsx:(type,props)=>({type,props}),jsxs:(type,props)=>({type,props})};
+for(const node of skyboundCard(jsx,false).props.children)assert.equal(node.props.href,SKYBOUND_URL);
+for(const node of skyboundCard(jsx,true).props.children)assert.equal(node.props.href,undefined);
+assert.match(SKYBOUND_URL,/\/skybound-soft\//);
+const shared=fs.readFileSync(new URL('../app/chunk-A5QZM2VZ.js',import.meta.url),'utf8');
+assert.ok(shared.includes('skyboundCard(e,!!a)'));
+assert.ok(!shared.includes('obstaclePracticeCard'));
+const html=fs.readFileSync(new URL('../skybound-soft/index.html',import.meta.url),'utf8');
+const bundle=html.match(/src="\.\/([^"]+)"/)[1];
+const code=fs.readFileSync(new URL('../skybound-soft/'+bundle,import.meta.url),'utf8');
+assert.ok(!code.includes('"/mini-oyunlar.html"'));
+assert.ok(!code.includes('"/models/'));
+assert.ok(code.includes('nt.rotation.y=kt*ft'));
+console.log('PASS Skybound card, solo route, disabled room state, subpath assets and pause clock');
