@@ -21,4 +21,7 @@ This release updates only the separate kimi-best and kimi-mobile repositories.
 - All six rebuilt patch buffers equal originals and pass SHA-256 validation: 32,976,832 bytes become 10,173,596 transport bytes (22,803,236 fewer).
 
 ## Limits
+- Release 40b: standalone Play connection banner uses the community connection rather than requiring an unused island socket; restored pages resume the status timer. Public Pages panel reached Connected (29 ms observed).
+- Additional mobile-size Chrome check: eight local chat messages, visible head-anchored bubble, then 1,000 F key inputs; bot/render update counter advanced from 15,099 to 17,568, with no captured JS errors or horizontal overflow. This is not a physical-phone result.
+
 Viewport emulation is not a physical iPhone/Safari performance test. No claim of universal crash freedom, full map visual audit, complete human race finish or every minigame end-to-end certification is made. Multiplayer requires the existing Mac mini and temporary tunnel; local QA origin was not authorized by its CORS policy, so online confirmation must use the public Pages origin.
