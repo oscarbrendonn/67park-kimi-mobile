@@ -142,7 +142,13 @@ function frame(){
   if(actionPending){actionPending=false;grab();}
   for(const r of racers)move(r,dt);
   for(const r of racers)if(r.carriedBy){const carrier=r.carriedBy;r.root.position.copy(carrier.root.position);r.root.position.y+=1.8;r.root.rotation.y=carrier.root.rotation.y;r.pivot.rotation.x=0;r.pivot.rotation.z=reduced?0:.15;r.avatar.animator.update(dt,{speed:0,grounded:false});}
- }else for(const r of racers)r.avatar?.animator.update(dt,{speed:0,grounded:true});
+ }else for(const r of racers){
+  if(phase==='finished'){
+   release(r);r.vy-=profile.gravity*dt;r.y=Math.max(0,r.y+r.vy*dt);r.root.position.y=r.y+.15;r.pivot.rotation.set(0,0,0);
+   if(r.y===0)r.vy=0;
+  }
+  r.avatar?.animator.update(dt,{speed:0,grounded:r.y===0,verticalVelocity:r.vy});
+ }
  $('#grab span').textContent=player.carry?'THROW':'GRAB';
  const pose=characterCameraPose(player.root.position,cameraYaw,cameraPitch,7.2);
  camera.position.set(pose.position.x,pose.position.y,pose.position.z);camera.lookAt(pose.target.x,pose.target.y,pose.target.z);camera.updateMatrixWorld();
