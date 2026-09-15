@@ -9,9 +9,16 @@ const shared=fs.readFileSync(new URL('../app/chunk-A5QZM2VZ.js',import.meta.url)
 assert.ok(shared.includes('skyboundCard(e,!!a)'));
 assert.ok(!shared.includes('obstaclePracticeCard'));
 const html=fs.readFileSync(new URL('../skybound-soft/index.html',import.meta.url),'utf8');
-const bundle=html.match(/src="\.\/([^"]+)"/)[1];
+const bundle=html.match(/src="\.\/(course-[^"?]+)/)[1];
 const code=fs.readFileSync(new URL('../skybound-soft/'+bundle,import.meta.url),'utf8');
 assert.ok(!code.includes('"/mini-oyunlar.html"'));
 assert.ok(!code.includes('"/models/'));
 assert.ok(code.includes('nt.rotation.y=kt*ft'));
+assert.ok(code.includes('createSkyboundAvatar()'));
+assert.ok(!code.includes('b2({base:"goril",body:null'));
+assert.ok(html.includes('three/examples/jsm/'));
+const avatar=fs.readFileSync(new URL('../app/skybound-avatar.js',import.meta.url),'utf8');
+assert.ok(avatar.includes('chunk-U4P5F7P3.js'));
+assert.ok(avatar.includes('const selected={...equipment}'));
+assert.ok(avatar.includes('await avatar.animator.ready'));
 console.log('PASS Skybound card, solo route, disabled room state, subpath assets and pause clock');
