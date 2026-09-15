@@ -1,3 +1,4 @@
+import './lane-rush-panel.js?v=rush-1';
 const notice=document.createElement('aside');
 notice.id='github-preview-notice';notice.setAttribute('role','status');notice.textContent='Online test · Connecting…';
 const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL('./responsive-shell.css?v=mobile-29',import.meta.url).href;document.head.append(sheet);document.body.append(notice);
