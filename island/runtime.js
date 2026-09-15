@@ -1,6 +1,6 @@
 import {applyKimiCoast20} from '/67park-kimi-mobile/app/kimi-coast20.js?v=coast-24';
 import {cleanLowerPark} from '/67park-kimi-mobile/app/park-lower-cleanup.js?v=20260914p';
-import {repairEastRoadEnd} from '/67park-kimi-mobile/app/east-road-end.js?v=20260914-east1';
+import {repairEastRoadEnd} from '/67park-kimi-mobile/app/east-road-end.js?v=corner-49b';
 import {installLobbyCourts} from '../app/lobby-courts.js';
 import {shortenKimiRightTip} from '/67park-kimi-mobile/app/kimi-right-curb-tip.js?v=coast-20a';
 import {installIslandSwimBoundary} from '/67park-kimi-mobile/app/island-swim-runtime.js?v=fleet-38';
@@ -30,6 +30,7 @@ import {applyRoadSeal64} from './road-seal-v64.js?v=road-seal-r1';
 import {applyParkPond65} from './park-pond-v65.js?v=pond-v65-P8-pastel-closure-r6';
 import {applySmallIslandWalls48} from './small-island-walls-v48.js?v=walls3';
 import {applySmallIslandMatch55} from './small-island-match-v55.js?v=1';
+import {shortenSoutheastDivider49} from '/67park-kimi-mobile/app/southeast-divider-49.js?v=corner-49b';
 import {applyCurbPolish49} from './curb-polish-v49.js?v=curb6';
 import {applySideContinuity50} from './side-continuity-v50.js?v=1';
 import {applyCoastalRoad56} from './coastal-road-v56.js?v=1';
@@ -1176,6 +1177,7 @@ await entryStage(2,'Preparing land and paths');
   // Apply after final island lowering and before Kimi's divider/AO mask bake.
   renderer.domElement.dataset.smallIslandWalls=JSON.stringify(applySmallIslandWalls48({root:kok,meshes:zeminler,patch:wallPatch48}));
   renderer.domElement.dataset.smallIslandMatch55=JSON.stringify(applySmallIslandMatch55(kok,dividerMeta55,dividerBuffer55));
+  renderer.domElement.dataset.southeastDivider49=JSON.stringify(shortenSoutheastDivider49(kok));
   const [parkMeta57,parkBuffer57]=await Promise.all([islandFetch('./park-terrain-v57.json?v=1').then(r=>{if(!r.ok)throw Error('Park terrain metadata');return r.json();}),islandFetch('./park-terrain-v57.bin?v=1').then(r=>{if(!r.ok)throw Error('Park terrain geometry');return r.arrayBuffer();})]);
   renderer.domElement.dataset.parkTerrain57=JSON.stringify(applyParkTerrain57(kok,parkMeta57,parkBuffer57));
   renderer.domElement.dataset.parkPlinthGround57=JSON.stringify(applyParkPlinthGround57(kok));
