@@ -1,3 +1,4 @@
+import {applyMapContinuity} from '../app/map-continuity.js?v=map-59';
 import {applyKimiCoast20} from '/67park-kimi-mobile/app/kimi-coast20.js?v=coast-24';
 import {cleanLowerPark} from '/67park-kimi-mobile/app/park-lower-cleanup.js?v=20260914p';
 import {repairEastRoadEnd} from '/67park-kimi-mobile/app/east-road-end.js?v=corner-49b';
@@ -1569,7 +1570,7 @@ await entryStage(13,'Finishing the northern neighbourhood');
   renderer.domElement.dataset.parkEdges=JSON.stringify(applyParkEdges(kok,parkEdgePatch));
   const curbJoinPatch=await islandFetch('/67park-kimi-mobile/repairs/curb-joins-v3.json').then(r=>{if(!r.ok)throw Error('Curb join repair missing');return r.json();});
   renderer.domElement.dataset.curbJoins=JSON.stringify(applyCurbJoins(kok,curbJoinPatch));
-  renderer.domElement.dataset.parcelPaving=JSON.stringify(applyParcelPaving(kok));shortenKimiRightTip(kok);repairEastRoadEnd(kok);cleanLowerPark(kok);applyKimiCoast20(kok);
+  renderer.domElement.dataset.parcelPaving=JSON.stringify(applyParcelPaving(kok));shortenKimiRightTip(kok);repairEastRoadEnd(kok);cleanLowerPark(kok);applyKimiCoast20(kok);applyMapContinuity(kok,await fetch('/67park-kimi-mobile/repairs/map-continuity-59.json').then(r=>{if(!r.ok)throw Error('Map continuity missing');return r.json()}));
   const stairGeometry=repairIslandStairs(kok);
   renderer.domElement.dataset.stairGeometry=JSON.stringify(stairGeometry.stats);
   zeminler=zeminler.filter(m=>!stairGeometry.nonWalkableNames.includes(m.name));
